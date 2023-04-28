@@ -1,26 +1,26 @@
 import random
 import string
 
-# Definir uma função para gerar uma senha forte
-def generate_password(length=12):
-    # Define os caracteres que podem ser usados na senha
-    chars = string.ascii_letters + string.digits + string.punctuation
+def generate_password(service, size, email):
+    """Função para gerar senha aleatória"""
+    characters = string.ascii_letters + string.digits + string.punctuation
+    password = ''.join(random.choice(characters) for i in range(size))
+    return {'service': service, 'email': email, 'password': password}
 
-    # Gera uma senha aleatória usando os caracteres definidos
-    password = ''.join(random.choice(chars) for _ in range(length))
+def save_password(password):
+    """Função para salvar senha em um arquivo de texto"""
+    with open('senhas.txt', 'a') as f:
+        f.write(f'Serviço: {password["service"]}\n')
+        f.write(f'E-mail: {password["email"]}\n')
+        f.write(f'Senha: {password["password"]}\n\n')
 
-    return password
+# Obter as informações do usuário
+service = input("Qual o serviço para a senha? ")
+size = int(input("Qual o tamanho da senha? "))
+email = input("Qual o e-mail registrado para senha? ")
 
-# Pedir ao usuário quantas senhas eles desejam gerar
-num_passwords = int(input("Quantas senhas deseja gerar? "))
+# Gerar a senha e salvar em um arquivo de texto
+password = generate_password(service, size, email)
+save_password(password)
+print(password)
 
-# Pedir ao usuário o tamanho das senhas que eles desejam gerar
-password_length = int(input("Qual o tamanho das senhas que deseja gerar? "))
-
-# Gerar as senhas e armazená-las em um arquivo de texto
-with open("/home/kali/Desktop/cyber_projects/senhas.txt", "a") as f:
-    for i in range(num_passwords):
-        service_name = input(f"Para qual serviço deseja gerar a senha {i+1}? ")
-        password = generate_password(password_length)
-        f.write(f"{service_name}: {password}\n")
-        print(f"Senha {i+1} para {service_name}: {password}")
