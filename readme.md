@@ -1,9 +1,17 @@
-Password Generator v1.0
+## Password Generator v1.0
 
-Crie senhas seguras para suas contas na web, sem precisar ter que memoriza-las ou fazer anotações sempre que criar uma nova senha.
+### Gerador de senhas seguras 
 
-Utilizando o gerador de senhas automáticas, após a criação da senha forte, ela automaticamente é salva em um arquivo de senha criptografado.
+* Crie senhas seguras para suas contas na web, sem precisar ter que memoriza-las ou fazer anotações sempre que criar uma nova senha.
 
-Caso você esqueça a senha, basta acessar o arquivo criptografado e lá você conseguirá ver todas as suas senhas criadas.
+* Utilizando o gerador de senhas automáticas, após a criação da senha forte, ela automaticamente é salva em um arquivo de senha.txt
+
+* O arquivo gerado pelo script pode ser criptografado para criar ainda mais segurança. 
+
+* Nesse código não está incluso a criptografia do arquivo. Isso ficará como melhoria para o pŕoximo rs.
+
+
+
+
 
 
