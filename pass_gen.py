@@ -15,12 +15,14 @@ def save_password(password):
         f.write(f'Senha: {password["password"]}\n\n')
 
 # Obter as informações do usuário
+
 service = input("Qual o serviço para a senha? ")
 size = int(input("Qual o tamanho da senha? "))
 email = input("Qual o e-mail registrado para senha? ")
 
 # Gerar a senha e salvar em um arquivo de texto
+
 password = generate_password(service, size, email)
 save_password(password)
-print(password)
+print('Sua senha é: '+ password)
 
